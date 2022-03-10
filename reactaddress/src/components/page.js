@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useIndexedDB } from 'react-indexed-db';
 
 export default function Page () {
 
@@ -9,6 +10,8 @@ export default function Page () {
         phone: '',
         email: ''
     })
+
+    const { add } = useIndexedDB('address');
 
     const handleChange = (event) => {
         const {target} = event;
@@ -23,6 +26,13 @@ export default function Page () {
         } else {
             setNewData({email: inputValue})
         }
+    }
+
+    const submit = () => {
+        
+        add({name: newData.name, phone: newData.phone, email: newData.email})
+        setAddNew(false)
+        console.log("submit activated")
     }
 
     return(
@@ -54,7 +64,7 @@ export default function Page () {
             onChange={handleChange}
             />
 
-            <button onClick={() => setAddNew(false)}>submit</button>
+            <button onClick={submit}>submit</button>
         </div> 
         : <button onClick={() => setAddNew(true)}>Add New</button>}
         </div>
