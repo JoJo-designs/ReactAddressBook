@@ -15,6 +15,14 @@ export default function Page () {
         const inputType = target.name;
         const inputValue = target.value;
         console.log(inputType, inputValue)
+
+        if (inputType === 'name') {
+            setNewData({name: inputValue})
+        } else if (inputType === 'phone') {
+            setNewData({phone: inputValue})
+        } else {
+            setNewData({email: inputValue})
+        }
     }
 
     return(
@@ -22,16 +30,29 @@ export default function Page () {
         <h1>Address Book</h1>
         {addnew ?
         <div>
-            <input placeholder='name'
+            <input 
+            placeholder='name'
             value={newData.name}
             name="name"
             type="text"
             onChange={handleChange}
             />
 
-            <input placeholder='phone'/>
+            <input 
+            placeholder='phone'
+            value={newData.phone}
+            name="phone"
+            type="text"
+            onChange={handleChange}
+            />
 
-            <input placeholder='email'/>
+            <input 
+            placeholder='email'
+            value={newData.email}
+            name="email"
+            type="text"
+            onChange={handleChange}
+            />
 
             <button onClick={() => setAddNew(false)}>submit</button>
         </div> 
