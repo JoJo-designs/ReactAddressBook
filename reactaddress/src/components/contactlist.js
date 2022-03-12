@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { useIndexedDB } from 'react-indexed-db'
+import { useIndexedDB } from 'react-indexed-db';
+import profile from './images/usertag1.png'
+import '../styles/contact.css'
+
 
 export default function ContactList () {
     const { getAll } = useIndexedDB('address')
@@ -18,6 +21,7 @@ export default function ContactList () {
            <div>
               {contacts.map((data) => (
                   <div key={data.id}>
+                      <img src={profile} alt="basic profile image"></img>
                       <h1>{data.name}</h1>
                       <h3>{data.phone}</h3>
                       <h3>{data.email}</h3>
