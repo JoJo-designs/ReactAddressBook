@@ -1,15 +1,17 @@
 export const DBConfig = {
-    name: 'AddressDB',
+    name: 'address',
     version: 1,
     objectStoresMeta: [
-        {
-            store: 'address',
-            storeConfig: { keyPath: 'id', autoIncrement: true },
-            storeSchema: [
-                {name: 'name', keyPath: 'name'},
-                {name: 'phone', keyPath: 'phone'},
-                {name: 'email', keyPath: 'email'}
-            ]
-        }
+      {
+        store: 'address',
+        storeConfig: { keyPath: 'id', autoIncrement: true },
+        storeSchema: [
+          { name: 'name', keypath: 'name'},
+          { name: 'phone', keypath: 'phone'},
+          { name: 'email', keypath: 'email'},
+          { name: 'note', keypath: 'note'},
+          { name: 'image', keypath: 'image'}
+        ]
+      }
     ]
-};
+  };
