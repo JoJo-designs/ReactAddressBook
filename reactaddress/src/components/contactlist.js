@@ -21,6 +21,10 @@ export default function ContactList () {
         setUpdate(id)
     }
 
+    const closeWindow = () => {
+        setUpdate('')
+    }
+
     return(
         <div>
             {contacts ? 
@@ -34,7 +38,7 @@ export default function ContactList () {
                       <button onClick={() => handleUpdate(data.id)}>Update</button>
                       <button>Delete</button>
                       {update === data.id ? 
-                      <Update data={data} /> : null}
+                      <Update update={update} onChange={closeWindow} data={data} /> : null}
                   </div>
                   
               ))}

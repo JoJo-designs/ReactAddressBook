@@ -8,8 +8,6 @@ export default function Update (data) {
     
     useEffect(() => {
         console.log(data)
-        const string = data.data.note
-        console.log(string)
         setName(data.data.name)
         setPhone(data.data.phone)
         setEmail(data.data.email)
@@ -57,7 +55,19 @@ export default function Update (data) {
             alert("Email is invaild")
             return;
         }
-        // update({id: id, })
+        update({id: data.data.id, name: name, phone: phone, email: email, note: notes}).then(event => {
+            alert("item edited");
+        });
+    };
+
+    const cancel = () => {
+       const cancel = window.confirm("are you sure you want to cancel unsaved changes will be lost")
+        if (cancel === true) {
+            console.log("the user wants to cancel")
+            data.onChange()
+        } else {
+            console.log("the user doesn't wants to cancel")
+        }
     }
     
 
@@ -95,6 +105,7 @@ export default function Update (data) {
             onChange={handleChange}
             />
             <button onClick={submit}>Submit</button>
+            <button onClick={cancel}>Cancel</button>
         </div>
     )
 }
