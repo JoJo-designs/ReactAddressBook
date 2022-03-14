@@ -58,6 +58,7 @@ export default function Update (data) {
         update({id: data.data.id, name: name, phone: phone, email: email, note: notes}).then(event => {
             alert("item edited");
         });
+        data.onChange()
     };
 
     const cancel = () => {
