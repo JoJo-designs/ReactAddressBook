@@ -6,7 +6,7 @@ import '../styles/contact.css'
 
 
 export default function ContactList () {
-    const { getAll } = useIndexedDB('address')
+    const { getAll, deleteRecord } = useIndexedDB('address')
     const [contacts, setContacts] =useState()
     const [update, setUpdate] = useState()
 
@@ -19,6 +19,18 @@ export default function ContactList () {
     const handleUpdate = (id) => {
         console.log(id)
         setUpdate(id)
+    }
+
+    const handleDelete= (id) => {
+       const remove = window.confirm('Are you sure you want to delete this item')
+       if (remove === true) {
+           console.log("user want to delete item " + id)
+           deleteRecord(id).then(event => {
+               alert('item has been deleted!')
+           })
+       } else {
+           console.log("user doesn't want to delete")
+       }
     }
 
     const closeWindow = () => {
@@ -36,7 +48,7 @@ export default function ContactList () {
                       <h3>{data.phone}</h3>
                       <h3>{data.email}</h3>
                       <button onClick={() => handleUpdate(data.id)}>Update</button>
-                      <button>Delete</button>
+                      <button onClick={() => handleDelete(data.id)}>Delete</button>
                       {update === data.id ? 
                       <Update update={update} onChange={closeWindow} data={data} /> : null}
                   </div>
