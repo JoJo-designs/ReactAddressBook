@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useIndexedDB } from 'react-indexed-db';
 import profile from './images/usertag1.png'
 import Update from './update';
+import Searchbar from './searchbar';
 import '../styles/contact.css'
 
 
@@ -38,7 +39,8 @@ export default function ContactList () {
     }
 
     return(
-        <div>
+        <div> 
+           <Searchbar />
             {contacts ? 
            <div>
               {contacts.map((data) => (
