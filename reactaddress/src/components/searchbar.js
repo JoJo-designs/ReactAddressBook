@@ -9,7 +9,7 @@ export default function Searchbar (props) {
         const inputValue = target.value
 
         setSearch(inputValue)
-        props.onChange()
+        props.onChange(inputValue)
     }
 
    return (

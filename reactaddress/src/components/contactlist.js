@@ -7,15 +7,18 @@ import '../styles/contact.css'
 
 
 export default function ContactList () {
-    const { getAll, deleteRecord } = useIndexedDB('address')
-    const [contacts, setContacts] =useState()
+    const { getAll, deleteRecord, getByIndex } = useIndexedDB('address')
+    const [contacts, setContacts] = useState()
     const [update, setUpdate] = useState()
+    const [searchname, setSearchName] = useState('')
 
     useEffect(() => {
         getAll().then(data => {
             setContacts(data)
         });
     }, [contacts]);
+
+
     
     const handleUpdate = (id) => {
         console.log(id)
@@ -38,8 +41,9 @@ export default function ContactList () {
         setUpdate('')
     }
 
-    const searchData = (search) => {
-        console.log("working", search)
+    const searchData = (inputValue) => {
+        console.log("working", inputValue)
+        setSearchName(inputValue)
     }
 
     return(
