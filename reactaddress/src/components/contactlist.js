@@ -38,9 +38,13 @@ export default function ContactList () {
         setUpdate('')
     }
 
+    const searchData = (search) => {
+        console.log("working", search)
+    }
+
     return(
         <div> 
-           <Searchbar />
+           <Searchbar onChange={searchData}/>
             {contacts ? 
            <div>
               {contacts.map((data) => (
