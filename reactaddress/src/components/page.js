@@ -59,7 +59,19 @@ export default function Page () {
             }
         );
         setAddNew(false)
+        setName('')
+        setEmail('')
+        setPhone('')
+        setNotes('')
     };
+
+    const cancel = () => {
+        setAddNew(false)
+        setName('')
+        setEmail('')
+        setPhone('')
+        setNotes('')
+    }
 
     return(
         <div>
@@ -92,15 +104,14 @@ export default function Page () {
 
             <textarea
             placeholder='Add a note not required'
-            values={notes}
+            value={notes}
             name="notes"
             type="text"
             onChange={handleChange}
             />
-                
-           
 
             <button onClick={submit}>submit</button>
+            <button onClick={cancel}>cancel</button>
         </div> 
         : <button onClick={() => setAddNew(true)}>Add New</button>}
         <ContactList />
