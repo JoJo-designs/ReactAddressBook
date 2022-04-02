@@ -19,7 +19,6 @@ export default function Page () {
         const {target} = event;
         const inputType = target.name;
         const inputValue = target.value;
-        console.log(inputType, inputValue)
 
         if (inputType === 'name') {
             setName(inputValue)

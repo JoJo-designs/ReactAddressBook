@@ -12,6 +12,7 @@ export default function ContactList () {
     const [update, setUpdate] = useState()
     const [searchname, setSearchName] = useState('')
     const [ viewMore, setViewMore ] = useState('')
+    const [matches, setMatches] = useState('')
 
     // Effects calls all data from the database
     useEffect(() => {
@@ -59,13 +60,51 @@ export default function ContactList () {
 
     // starting the search bar.
     const searchData = (inputValue) => {
-        console.log("working", inputValue)
         setSearchName(inputValue)
+        let search = searchname.toLowerCase()
+        let matchingNames = [];
+        for (let i=0; i < contacts.length; i++) {
+            const element = contacts[i];
+            const elementLC = element.name.toLowerCase()
+            
+
+            if (elementLC.includes(search)) {
+                matchingNames.push(element);
+                setMatches(matchingNames);
+            }
+        }   
     }
 
     return(
         <div> 
            <Searchbar onChange={searchData}/>
+           {matches ? 
+           <div>
+           {matches.map((data) => (
+               <div key={data.id}>
+                   <img src={profile} alt="basic profile image"></img>
+                   <h1>{data.name}</h1>
+                   <h3>{data.phone}</h3>
+                   <h3>{data.email}</h3>
+
+                   {viewMore === data.id ?
+                   <button onClick={() => close()}>-</button>
+                   :
+                   <button onClick={() => handleMore(data.id)}>+</button>
+                   }
+
+
+                     {viewMore === data.id ? 
+                     <div>
+                     <p>{data.note}</p>
+                     <button onClick={() => handleUpdate(data.id)}>Update</button>
+                     <button onClick={() => handleDelete(data.id)}>Delete</button> </div> : null}
+
+                   {update === data.id ? 
+                   <Update update={update} onChange={closeWindow} data={data} /> : null}
+               </div> ))}
+           </div>: null } 
+
             {contacts ? 
            <div>
               {contacts.map((data) => (
