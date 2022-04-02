@@ -11,7 +11,9 @@ export default function ContactList () {
     const [contacts, setContacts] = useState()
     const [update, setUpdate] = useState()
     const [searchname, setSearchName] = useState('')
+    const [ viewMore, setViewMore ] = useState('')
 
+    // Effects calls all data from the database
     useEffect(() => {
         getAll().then(data => {
             setContacts(data)
@@ -19,12 +21,25 @@ export default function ContactList () {
     }, [contacts]);
 
 
-    
+    // function sets the update to the id of item the user clicks. 
+    // this renders an new component
     const handleUpdate = (id) => {
         console.log(id)
         setUpdate(id)
     }
 
+    // sets the id of the selected person and displays more data when true
+    const handleMore = (id) => {
+        console.log(id)
+        setViewMore(id)
+    }
+
+    // close the window with more data
+    const close = () => {
+        setViewMore('')
+    }
+
+    // allows a user to delete unneeded data 
     const handleDelete= (id) => {
        const remove = window.confirm('Are you sure you want to delete this item')
        if (remove === true) {
@@ -37,10 +52,12 @@ export default function ContactList () {
        }
     }
 
+    // closes the new component opened for the update.
     const closeWindow = () => {
         setUpdate('')
     }
 
+    // starting the search bar.
     const searchData = (inputValue) => {
         console.log("working", inputValue)
         setSearchName(inputValue)
@@ -57,8 +74,20 @@ export default function ContactList () {
                       <h1>{data.name}</h1>
                       <h3>{data.phone}</h3>
                       <h3>{data.email}</h3>
-                      <button onClick={() => handleUpdate(data.id)}>Update</button>
-                      <button onClick={() => handleDelete(data.id)}>Delete</button>
+
+                      {viewMore === data.id ?
+                      <button onClick={() => close()}>-</button>
+                      :
+                      <button onClick={() => handleMore(data.id)}>+</button>
+                      }
+
+
+                        {viewMore === data.id ? 
+                        <div>
+                        <p>{data.note}</p>
+                        <button onClick={() => handleUpdate(data.id)}>Update</button>
+                        <button onClick={() => handleDelete(data.id)}>Delete</button> </div> : null}
+
                       {update === data.id ? 
                       <Update update={update} onChange={closeWindow} data={data} /> : null}
                   </div>
