@@ -27,14 +27,13 @@ body {
 
 .addNew {
     margin: 20px 50px;
-    background-color: rgb(240, 122, 151);
+    background-color: rgb(105, 8, 32);
     padding: 10px
 }
 
 .inputBox {
     margin: 10px;
     border: none;
-    border-left:rgb(105, 8, 32) 3px solid;
     font-size: 18px;
     width: 30%;
 }
@@ -42,9 +41,38 @@ body {
 .noteBox {
     margin: 10px;
     border: none;
-    border-left:rgb(105, 8, 32) 3px solid;
     font-size: 18px;
     width: 60%;
+    display: block;
+}
+
+.submit {
+    margin: 10px;
+    padding: 8px;
+    border: none;
+    background-color: rgb(18, 136, 34);
+    color: white;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.cancel{
+    margin: 10px;
+    padding: 8px;
+    border: none;
+    background-color: rgb(247, 27, 27);
+    color: white;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+/* search bar  */
+
+.searchBox {
+    margin: 10px;
+    border: rgb(105, 8, 32) 2px solid;
+    font-size: 18px;
+    width: 30%;
 }
 
 /* stuff in the contact list */

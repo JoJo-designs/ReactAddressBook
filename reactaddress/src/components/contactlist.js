@@ -7,12 +7,12 @@ import '../styles/contact.css'
 
 
 export default function ContactList () {
-    const { getAll, deleteRecord, getByIndex } = useIndexedDB('address')
-    const [contacts, setContacts] = useState()
-    const [update, setUpdate] = useState()
-    const [searchname, setSearchName] = useState('')
+    const { getAll, deleteRecord } = useIndexedDB('address')
+    const [ contacts, setContacts ] = useState()
+    const [ update, setUpdate ] = useState()
+    const [ searchname, setSearchName ] = useState('')
     const [ viewMore, setViewMore ] = useState('')
-    const [matches, setMatches] = useState('')
+    const [ matches, setMatches ] = useState('')
 
     // Effects calls all data from the database
     useEffect(() => {
@@ -78,6 +78,7 @@ export default function ContactList () {
     return(
         <div> 
            <Searchbar onChange={searchData}/>
+           {/* this displays all the names that match search at the top */}
            {matches ? 
            <div>
            {matches.map((data) => (
@@ -105,6 +106,7 @@ export default function ContactList () {
                </div> ))}
            </div>: null } 
 
+        {/* this displays all the contacts */}
             {contacts ? 
            <div>
               {contacts.map((data) => (

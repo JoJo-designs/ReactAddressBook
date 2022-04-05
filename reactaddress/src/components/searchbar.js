@@ -15,7 +15,8 @@ export default function Searchbar (props) {
    return (
        <div>
           <input 
-            placeholder="Search"
+          className="searchBox"
+            placeholder="Search Your Contacts"
             value={search}
             name="search"
             type="text"

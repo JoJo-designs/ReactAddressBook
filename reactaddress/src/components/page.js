@@ -80,7 +80,7 @@ export default function Page () {
         <div className='addNew'>
             <input 
             className='inputBox'
-            placeholder='name'
+            placeholder='name(required)'
             value={name}
             name="name"
             type="text"
@@ -89,7 +89,7 @@ export default function Page () {
 
             <input 
             className='inputBox'
-            placeholder='phone'
+            placeholder='phone(required)'
             value={phone}
             name="phone"
             type="text"
@@ -98,7 +98,7 @@ export default function Page () {
 
             <input 
             className='inputBox'
-            placeholder='email'
+            placeholder='email(required)'
             value={email}
             name="email"
             type="text"
@@ -114,8 +114,8 @@ export default function Page () {
             onChange={handleChange}
             />
 
-            <button className='button'onClick={submit}>submit</button>
-            <button className='button'onClick={cancel}>cancel</button>
+            <button className='submit'onClick={submit}>Submit</button>
+            <button className='cancel'onClick={cancel}>Cancel</button>
         </div> 
         : <button className='button' onClick={() => setAddNew(true)}>Add New</button>}
         <ContactList />
