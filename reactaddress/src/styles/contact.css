@@ -1,3 +1,53 @@
+/* stuff in the header */
+body {
+    margin: 0;
+}
+
+.header {
+    background-color: rgb(105, 8, 32);
+    color: white;
+    padding: 15px;
+    margin-top: -10;
+    text-align: center;
+}
+
+/* stuff for many pages things */
+
+.button {
+    margin: 10px;
+    padding: 8px;
+    border: none;
+    background-color: rgb(105, 8, 32);
+    color: white;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+/* Add new Contacts */
+
+.addNew {
+    margin: 20px 50px;
+    background-color: rgb(240, 122, 151);
+    padding: 10px
+}
+
+.inputBox {
+    margin: 10px;
+    border: none;
+    border-left:rgb(105, 8, 32) 3px solid;
+    font-size: 18px;
+    width: 30%;
+}
+
+.noteBox {
+    margin: 10px;
+    border: none;
+    border-left:rgb(105, 8, 32) 3px solid;
+    font-size: 18px;
+    width: 60%;
+}
+
+/* stuff in the contact list */
 img {
     width: 100px;
     height: 100px;

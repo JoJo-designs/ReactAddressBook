@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useIndexedDB } from 'react-indexed-db';
 import ContactList from './contactlist';
+import '../styles/contact.css'
 
 import { validateEmail } from '../utils/helper';
 
@@ -73,11 +74,12 @@ export default function Page () {
     }
 
     return(
-        <div>
-        <h1>Address Book</h1>
+        <div className="contain">
+        <div className="header"><h1>Address Book</h1></div>
         {addnew ?
-        <div>
+        <div className='addNew'>
             <input 
+            className='inputBox'
             placeholder='name'
             value={name}
             name="name"
@@ -86,6 +88,7 @@ export default function Page () {
             />
 
             <input 
+            className='inputBox'
             placeholder='phone'
             value={phone}
             name="phone"
@@ -94,6 +97,7 @@ export default function Page () {
             />
 
             <input 
+            className='inputBox'
             placeholder='email'
             value={email}
             name="email"
@@ -102,6 +106,7 @@ export default function Page () {
             />
 
             <textarea
+            className='noteBox'
             placeholder='Add a note not required'
             value={notes}
             name="notes"
@@ -109,10 +114,10 @@ export default function Page () {
             onChange={handleChange}
             />
 
-            <button onClick={submit}>submit</button>
-            <button onClick={cancel}>cancel</button>
+            <button className='button'onClick={submit}>submit</button>
+            <button className='button'onClick={cancel}>cancel</button>
         </div> 
-        : <button onClick={() => setAddNew(true)}>Add New</button>}
+        : <button className='button' onClick={() => setAddNew(true)}>Add New</button>}
         <ContactList />
         </div>
     )
