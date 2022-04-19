@@ -73,8 +73,9 @@ export default function Update (data) {
     
 
     return (
-        <div>
+        <div className='addNew'>
                <input 
+            className='inputBox'
             placeholder="name"
             value={name}
             name="name"
@@ -83,6 +84,7 @@ export default function Update (data) {
             />
 
             <input 
+            className='inputBox'
             placeholder="phone"
             value={phone}
             name="phone"
@@ -91,6 +93,7 @@ export default function Update (data) {
             />
 
             <input 
+            className='inputBox'
             placeholder="email"
             value={email}
             name="email"
@@ -99,14 +102,15 @@ export default function Update (data) {
             />
 
             <textarea
+            className='noteBox'
             placeholder="notes are not required"
             value={notes}
             name="notes"
             type="text"
             onChange={handleChange}
             />
-            <button onClick={submit}>Submit</button>
-            <button onClick={cancel}>Cancel</button>
+            <button className='submit' onClick={submit}>Submit</button>
+            <button className='cancel'onClick={cancel}>Cancel</button>
         </div>
     )
 }

@@ -83,7 +83,7 @@ export default function ContactList () {
            <div>
            {matches.map((data) => (
                <div key={data.id}>
-                   <img src={profile} alt="basic profile image"></img>
+                   <img src={profile} alt="profile icon"></img>
                    <h1>{data.name}</h1>
                    <h3>{data.phone}</h3>
                    <h3>{data.email}</h3>
